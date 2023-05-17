@@ -1,6 +1,6 @@
 <div float: center>
     <img src="common/logo_DH.png" width="30%" height="30%" style="text-align: left;">
-    <img src="common/wipro_logo.png"  width="20%" height="20%" style="text-align: right; margin-left:400px;">
+    <img src="common/Wipro_logo.png"  width="20%" height="20%" style="text-align: right; margin-left:400px;">
 <div/>
     
 ---
@@ -112,6 +112,13 @@ Aunque un poco tarde, el mundo se está dando cuenta del efecto nocivo de los co
     - Cloud Type -15 N/A
 - **Dew_Point** - Punto de rocío
 - **Fill_Flag** - 
+    - Fill Flag 0 N/A
+    - Fill Flag 1 Missing Image
+    - Fill Flag 2 Low Irradiance
+    - Fill Flag 3 Exceeds Clearsky
+    - Fill Flag 4 Missing Cloud Properties
+    - Fill Flag 5 Rayleigh Violation
+    - Fill Flag any N/A
 - **Relative_Humidity** - Humedad relativa
 - **Solar_Zenith_Angle** - Ángulo de zenit solar
 - **Pressure** - Presión atomsférica
