@@ -1,6 +1,6 @@
 <div float: center>
-    <img src="../common/../common/logo_DH.png" width="30%" height="30%" style="text-align: left;">
-    <img src="../common/wipro_logo.png"  width="20%" height="20%" style="text-align: right; margin-left:400px;">
+    <img src="common/logo_DH.png" width="30%" height="30%" style="text-align: left;">
+    <img src="common/wipro_logo.png"  width="20%" height="20%" style="text-align: right; margin-left:400px;">
 <div/>
     
 ---
@@ -31,7 +31,7 @@ Integrantes:
 <a id="explicacion_dataset"></a> 
 ### 1.1 Presentación del caso
 
-<img src="../common/solar_farms.png"  width="100%" height="100%">
+<img src="common/solar_farms.png"  width="100%" height="100%">
 
 :es:
 
