@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .uploadbox {
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .uploadbox:hover {
+            background-color: #f2f2f2;
+        }
+        .uploadbox input {
+            display: none;
+        }
+        .label {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .chart {
+            height: 300px;
+            background-color: #f2f2f2;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <div class="uploadbox">
+            <input type="file" id="fileUpload" accept=".csv, .xlsx">
+            Arrastra y suelta un archivo CSV o XLSX aquí o haz clic para seleccionar un archivo.
+        </div>
+        <div class="label">Número: <span id="numero">0</span></div>
+        <button class="button" onclick="enviarArchivo()">Enviar</button>
+        <div class="chart"></div>
+    </div>
+
+    <script>
+        function enviarArchivo() {
+            var fileUpload = document.getElementById('fileUpload');
+            var file = fileUpload.files[0];
+
+            if (file) {
+                var formData = new FormData();
+                formData.append('archivo', file);
+
+                fetch('/ruta-al-archivo-python', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Lógica para procesar la respuesta del servidor aquí
+                    console.log(data);
+                    var numeroElement = document.getElementById('numero');
+                    numeroElement.innerText = data.numero;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
