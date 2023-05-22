@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop 4</title>
+    <title>Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,6 +29,11 @@
             text-decoration: none;
             color: #333;
         }
+        .navbar img {
+            height: 40px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -36,7 +41,6 @@
         }
         h1 {
             text-align: center;
-            font-family: helvetica, sans-serif;
         }
         .uploadbox {
             border: 2px dashed #ccc;
@@ -73,19 +77,25 @@
             background-color: #f2f2f2;
             margin-top: 20px;
         }
+        footer {
+            background-color: #C61135;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <ul>
-            <li><img src="../common/logo_DH.png" alt="Logo" style="width:50%; height:50%;"></li>
+            <li><img src="../common/logo_DH.png" alt="Logo"></li>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#sobre-el-workshop">Sobre el Workshop</a></li>
             <li><a href="#integrantes-grupo-8">Integrantes Grupo 8</a></li>
         </ul>
     </div>
     <div class="container">
-        <h1>PREDICTOR DE INCIDENCIA SOLAR</h1>
+        <h1>Dashboard</h1>
         <div class="uploadbox">
             <input type="file" id="fileUpload" accept=".csv, .xlsx">
             Arrastra y suelta un archivo CSV o XLSX aquí o haz clic para seleccionar un archivo.
@@ -94,6 +104,10 @@
         <button class="button" onclick="enviarArchivo()">Enviar</button>
         <div class="chart"></div>
     </div>
+
+    <footer>
+        <p style="color: white;">Workshop 4 - Grupo 8 &copy; 2023</p>
+    </footer>
 
     <script>
         function enviarArchivo() {
@@ -123,4 +137,5 @@
     </script>
 </body>
 </html>
+
 
