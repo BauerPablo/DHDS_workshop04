@@ -40,10 +40,11 @@ h1 {
 }
 .uploadbox {
     border: 2px dashed #ccc;
-    border-radius: 4px;
+    border-radius: 40px;
     padding: 20px;
     text-align: center;
     cursor: pointer;
+    margin-top: 60px;
 }
 .uploadbox:hover {
     background-color: #f2f2f2;
@@ -56,20 +57,26 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 .button {
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 80px;
+    border-radius: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
 }
 .chart {
-    height: 300px;
+    height: 500px;
     background-color: #f2f2f2;
     margin-top: 20px;
 }
