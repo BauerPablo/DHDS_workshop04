@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.navbar li {
+    float: left;
+}
+.navbar li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+.navbar img {
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    margin: 2px;
+    font-size: 25px;
+    letter-spacing: 5px;
+}
+.uploadbox {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.uploadbox:hover {
+    background-color: #f2f2f2;
+}
+.uploadbox input {
+    display: none;
+}
+.label {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.chart {
+    height: 300px;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+}
+footer {
+    background-color: #C61135;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.tutorial-1 {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-top: 30px;
+    justify-content: center;
+}
+.tutorial-2 {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    margin-top: 30px;
+    justify-content: center;
+}
+.tutorial-1 img {
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+.tutorial-2 img {
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+.tutorial-text {
+    text-align: center;
+}

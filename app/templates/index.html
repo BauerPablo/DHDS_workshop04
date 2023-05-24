@@ -1,0 +1,44 @@
+{% extends './layout.html' %}
+
+{% block title %}{{data.area}} - {{data.title}}{% endblock %}
+
+{% block container %}
+<div class="container">
+    <h1>{{data.titulo}}</h1>
+    <div class="uploadbox">
+        <input type="file" id="fileUpload" accept=".csv, .xlsx">
+        Arrastra y suelta un archivo CSV o XLSX aquí o haz clic para seleccionar un archivo.
+    </div>
+    <button class="button" onclick="enviarArchivo()">Enviar</button>
+    <div class="chart"></div>
+</div>
+{% endblock %}
+
+{% block enviarArchivo_script %}
+<script>
+    function enviarArchivo() {
+        var fileUpload = document.getElementById('fileUpload');
+        var file = fileUpload.files[0];
+
+        if (file) {
+            var formData = new FormData();
+            formData.append('archivo', file);
+
+            fetch('/ruta-al-archivo-python', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Lógica para procesar la respuesta del servidor aquí
+                console.log(data);
+                var numeroElement = document.getElementById('numero');
+                numeroElement.innerText = data.numero;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    }
+</script>
+{% endblock %}
