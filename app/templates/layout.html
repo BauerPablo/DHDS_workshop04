@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+<body>
+
+    <div class="navbar">
+        <ul>
+            <li><img src="../static/img/logo_DH.png" alt="Logo"></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="como_funciona">¿Cómo funciona?</a></li>
+            <li><a href="sobre_el_workshop_04">Sobre el Workshop</a></li>
+            <li><a href="grupo_8">Integrantes Grupo 8</a></li>
+        </ul>
+    </div>
+
+    {% block container %}
+    {% endblock %}
+
+    <footer>
+        <p style="color: white;">Workshop 4 Integrador - Grupo 8 &copy; 2023</p>
+    </footer>
+
+    {% block enviarArchivo_script %}
+    {% endblock %}
+
+</body>
+</html>
