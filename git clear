@@ -1,0 +1,66 @@
+[33mcommit c9a2832f4c7c5ccac592a7222c57aba8573234c3[m[33m ([m[1;36mHEAD -> [m[1;32magustin[m[33m)[m
+Author: ^[[200~garciaagustin1992gmailcom~ <garciaagustin1992@gmail.com>
+Date:   Wed May 31 16:14:28 2023 -0300
+
+    Cambio agus
+
+[33mcommit ef76a543f17added84a657532c926b12938b4990[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Mon May 22 21:59:18 2023 -0300
+
+    modificaciones de retoque y enprolijamiento
+
+[33mcommit acc1d7ef5fce3a31feba47af96464302b814560a[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Mon May 22 17:52:53 2023 -0300
+
+    new Main
+
+[33mcommit 40ec79619af25b359c6ed25279b0bb79625fd4c1[m
+Merge: f16f321 669fee7
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Mon May 22 16:09:38 2023 -0300
+
+    merge de agus
+
+[33mcommit f16f321faccd246868f3b707569eeb90830b02fe[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Mon May 22 15:42:44 2023 -0300
+
+    pipeline = Random Forest Regressor - Pablo. Cambios en apariencia de index.html
+
+[33mcommit 669fee7406ad5264388a7db0db482f57ca9e72ac[m
+Author: ^[[200~garciaagustin1992gmailcom~ <garciaagustin1992@gmail.com>
+Date:   Mon May 22 00:27:00 2023 -0300
+
+    boxplot
+
+[33mcommit 6a3c7d57938950a8060c92628ac23be134015e1b[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Sat May 20 12:47:09 2023 -0300
+
+    modificación de index.html, nuevas funciones nav bar
+
+[33mcommit 40d4045013cb1643eb592e9b3125884ba351fefe[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Sat May 20 10:52:43 2023 -0300
+
+    se agrega el index.html borrador a para ejecutar los archivos desde la web
+
+[33mcommit 453fdf7181a7bfc8d3fd2f049260f17ff6eaf1e0[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Wed May 17 12:33:58 2023 -0300
+
+    Se modificó el README. Se incorporó la matriz de correlación
+
+[33mcommit a8a63068345329fbfe91613c7668b8104b53cc49[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Wed May 17 11:46:28 2023 -0300
+
+    Se identificaron dummies y se dividio el DataSet. Se modificaron las img del README.md
+
+[33mcommit 953c0fb6ddb69c9cebed15991fcab30f468fc115[m
+Author: BauerPablo <pablo.bauer@aerolineas.com.ar>
+Date:   Wed May 17 08:58:25 2023 -0300
+
+    resubiendo todos los archivos sin df pesasdos en el historial
