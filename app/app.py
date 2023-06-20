@@ -106,10 +106,10 @@ def calculator(file):
 	data['cloud_type_cat'] = data['Cloud Type'].apply(cloud_type_cat)
 	data['fill_flag_cat'] = data['Fill Flag'].apply(flag_cat)
 
-	encoder = OneHotEncoder(drop='first', sparse=False)
+	encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')
 	dummies = encoder.fit_transform(data[['cloud_type_cat', 'fill_flag_cat']])
-	dummies = pd.DataFrame(dummies)
-	dummies.columns = [x for cat_list in encoder.categories_ for x in cat_list[1:]]
+	dummies = pd.DataFrame(dummies.astype(int), columns=np.concatenate(encoder.categories_))
+
 	data = data.join(dummies)
 	data = data.drop(columns=['Cloud Type','Fill Flag','cloud_type_cat','fill_flag_cat'])
 
