@@ -96,18 +96,19 @@ def calculator(file):
 	model_file_name_dhi = 'predictors/dhi_model.pickle'
 	model_file_name_dni = 'predictors/dni_model.pickle'
 	model_file_name_ghi = 'predictors/ghi_model.pickle'
+	encoder_file_name = 'predictors/encoder.pickle'
 
 	model_dhi = pickle.load(open(model_file_name_dhi, 'rb'))
 	model_dni = pickle.load(open(model_file_name_dni, 'rb'))
 	model_ghi = pickle.load(open(model_file_name_ghi, 'rb'))
+	encoder = pickle.load(open(encoder_file_name, 'rb'))
 
 	data = pd.read_csv(os.path.join('data/uploads', file.filename), sep=',')
         
 	data['cloud_type_cat'] = data['Cloud Type'].apply(cloud_type_cat)
 	data['fill_flag_cat'] = data['Fill Flag'].apply(flag_cat)
 
-	encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')
-	dummies = encoder.fit_transform(data[['cloud_type_cat', 'fill_flag_cat']])
+	dummies = encoder.transform(data[['cloud_type_cat', 'fill_flag_cat']])
 	dummies = pd.DataFrame(dummies.astype(int), columns=np.concatenate(encoder.categories_))
 
 	data = data.join(dummies)
