@@ -5,14 +5,18 @@
 {% block container %}
 <div class="container">
     <h1>{{data.titulo}}</h1>
-    <div class="uploadbox">
-        <input type="file" id="fileUpload" accept=".csv, .xlsx">
-        Arrastra y suelta un archivo CSV o XLSX aquí o haz clic para seleccionar un archivo.
-    </div>
+        {{ dropzone.create(action='upload_file') }}
+        {{ dropzone.load_js() }}
+        {{ dropzone.config() }}
+    <!--<div class="uploadbox">
+        <input type="file" id="fileUpload" accept=".csv"> 
+        Arrastra y suelta un archivo CSV aquí o haz clic para seleccionar un archivo.
+        
+    </div>-->
     <div class="button-container">
         <button class="button" onclick="enviarArchivo()">Enviar</button>
     </div>
-    <div class="chart"></div>
+    <div class="chart">{{ data.prediccion_dhi }}</div>
 </div>
 {% endblock %}
 
@@ -26,7 +30,7 @@
             var formData = new FormData();
             formData.append('archivo', file);
 
-            fetch('/ruta-al-archivo-python', {
+            fetch('/data/uploads', {
                 method: 'POST',
                 body: formData
             })
