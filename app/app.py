@@ -1,8 +1,9 @@
 
-from flask import Flask, flash, request, redirect, url_for, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template, send_from_directory
 from flask_dropzone import Dropzone
 from werkzeug.utils import secure_filename
 from sklearn.preprocessing import OneHotEncoder
+from dash_app import create_dash_app
 
 import pandas as pd
 import numpy as np
@@ -10,6 +11,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 import pickle
+import plotly
+import plotly.express as px
+import json
 
 UPLOAD_FOLDER = 'data/uploads'
 ALLOWED_EXTENSIONS = {'csv'}
@@ -18,18 +22,22 @@ app = Flask(__name__)
 app.config.update(
 	UPLOAD_FOLDER = UPLOAD_FOLDER,
 	DROPZONE_MAX_FILE_SIZE = 1024,
-	DROPZONE_TIMEOUT = 5*60*1000
+	DROPZONE_TIMEOUT = 5*60*1000,
+	DROPZONE_DEFAULT_MESSAGE="Subir archivo .CSV",
+	DROPZONE_REDIRECT_VIEW="dashboard_calcs"
 	)
 
 dropzone = Dropzone(app)
 
 @app.route('/')
+@app.route('/home')
 def index():
 
 	data = {
 	'titulo': 'IRRADIANCE PREDICTOR',
 	'area': 'Digital House - Data Science'
 	}
+
 
 	return render_template('index.html', data=data)
 
@@ -43,6 +51,16 @@ def como_funciona():
 
 	return render_template('como_funciona.html', data=data)
 
+@app.route('/grupo_8')
+def grupo_8():
+
+	data = {
+	'titulo': 'GRUPO 8',
+	'area': 'Digital House - Data Science'
+	}
+
+	return render_template('grupo_8.html', data=data)
+
 def pagina_no_encontrada(error):
 
 	data = {
@@ -54,6 +72,30 @@ def pagina_no_encontrada(error):
 
 def allowed_file(filename):
 	return'.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/dashboard_calcs')
+def dashboard_calcs():
+
+	data = {
+	'titulo': 'DASHBOARD',
+	'area': 'Digital House - Data Science'
+	}
+
+	file = 'test.csv'
+	print(file)
+
+	pred_dhi, pred_dni, pred_ghi, data = calculator(file)
+
+	#---test code ---
+	df = data
+	fig_1 = px.bar(df, x="Month", y=[pred_dhi, pred_dni, pred_ghi], title="IRRADIANCE")
+	print(df)
+
+	graph_1_json = json.dumps(fig_1, cls = plotly.utils.PlotlyJSONEncoder)
+
+	print(data)
+
+	return render_template('dashboard_calcs.html', data=data, graph_1_json = graph_1_json)
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
@@ -80,16 +122,10 @@ def upload_file():
 			#filename = secure_filename(file.filename)
 			file.save(os.path.join('data/uploads', file.filename))
 
-			pred_dhi, pred_dni, pred_ghi = calculator(file)
+			return render_template('dashboard_calcs.html', data=data)
+			#---test code ---
 
-			#Chequear si funciona asi. No estoy seguro si sirve
-			data['prediccion_dhi'] = pred_dhi
-			data['prediccion_dni'] = pred_dni
-			data['prediccion_ghi'] = pred_ghi
-
-			print(data)
-
-			return render_template('index.html', data=data)
+			
 
 def calculator(file):
 
@@ -103,7 +139,7 @@ def calculator(file):
 	model_ghi = pickle.load(open(model_file_name_ghi, 'rb'))
 	encoder = pickle.load(open(encoder_file_name, 'rb'))
 
-	data = pd.read_csv(os.path.join('data/uploads', file.filename), sep=',')
+	data = pd.read_csv(os.path.join('data/uploads', file), sep=',')
         
 	data['cloud_type_cat'] = data['Cloud Type'].apply(cloud_type_cat)
 	data['fill_flag_cat'] = data['Fill Flag'].apply(flag_cat)
@@ -122,7 +158,7 @@ def calculator(file):
 	pred_dni = model_dni.predict(X)
 	pred_ghi = model_ghi.predict(X)
 
-	return pred_dhi, pred_dni, pred_ghi
+	return pred_dhi, pred_dni, pred_ghi, data
 
 def cloud_type_cat(x):
 	    if x == 0:

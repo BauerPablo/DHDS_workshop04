@@ -7,44 +7,18 @@
     <h1>{{data.titulo}}</h1>
         {{ dropzone.create(action='upload_file') }}
         {{ dropzone.load_js() }}
-        {{ dropzone.config() }}
+        {{ dropzone.config(padding) }}
     <!--<div class="uploadbox">
         <input type="file" id="fileUpload" accept=".csv"> 
         Arrastra y suelta un archivo CSV aquí o haz clic para seleccionar un archivo.
         
-    </div>-->
-    <div class="button-container">
-        <button class="button" onclick="enviarArchivo()">Enviar</button>
     </div>
-    <div class="chart">{{ data.prediccion_dhi }}</div>
+    <div class="button-container" >
+        <a class="button" href="dashboard_calcs">Enviar</a>
+    </div>-->
 </div>
 {% endblock %}
 
 {% block enviarArchivo_script %}
-<script>
-    function enviarArchivo() {
-        var fileUpload = document.getElementById('fileUpload');
-        var file = fileUpload.files[0];
 
-        if (file) {
-            var formData = new FormData();
-            formData.append('archivo', file);
-
-            fetch('/data/uploads', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Lógica para procesar la respuesta del servidor aquí
-                console.log(data);
-                var numeroElement = document.getElementById('numero');
-                numeroElement.innerText = data.numero;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    }
-</script>
 {% endblock %}
