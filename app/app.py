@@ -51,6 +51,16 @@ def como_funciona():
 
 	return render_template('como_funciona.html', data=data)
 
+@app.route('/sobre_el_workshop_04')
+def sobre_el_workshop_04():
+
+	data = {
+	'titulo': 'SOBRE EL WORKSHOP',
+	'area': 'Digital House - Data Science'
+	}
+
+	return render_template('sobre_el_workshop_04.html', data=data)
+
 @app.route('/grupo_8')
 def grupo_8():
 
@@ -150,7 +160,7 @@ def calculator(file):
 	data = data.join(dummies)
 	data = data.drop(columns=['Cloud Type','Fill Flag','cloud_type_cat','fill_flag_cat'])
 
-	X = data.drop(['Clearsky DHI', 'Clearsky DNI','Clearsky GHI'], axis=1)
+	X = data.drop(['Clearsky DHI', 'Clearsky DNI','Clearsky GHI','Solar Zenith Angle'], axis=1)
 
 	print(data.shape)
 

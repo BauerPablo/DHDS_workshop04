@@ -31,7 +31,6 @@ body {
     min-width: 800px;
     margin: 0 auto;
     min-height: 600px;
-    max-height: 800px;
     padding: 100px;
 }
 h1 {
@@ -127,6 +126,23 @@ footer {
     padding-right: 20px;
     letter-spacing: 0.05em;
 }
+.workshop_container {
+    text-align: center;
+    max-width: 800px;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: 0.05em;
+    margin: auto;
+}
+.workshop_container p{
+    text-align: justify;
+}
+.workshop_container img{
+    max-width: 780px;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 3px 8px 8px #9F9F9F;
+}
 .integrantes {
     display: flex;
     flex-wrap: wrap;
@@ -137,6 +153,12 @@ footer {
     min-height: 550px;
     max-width: 1300px;
 }
+.integrantes figcaption{
+    padding: 15px;
+    font-weight: bold; 
+
+}
+
 .circulo {
     position: relative;
     height: 250px;

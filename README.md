@@ -12,7 +12,6 @@
 Integrantes:
 - Agustín García 
 - Florencia Mosconi
-- Ezequiel López Mondo 
 - Pablo Bauer 
 
 <a id="tabla_contenidos"></a> 
